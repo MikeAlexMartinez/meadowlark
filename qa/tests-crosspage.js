@@ -12,11 +12,11 @@ suite('Cross-page Tests', function(){
 
 	test('requesting a group rate quote from the hood river tour page ' + 
 			'should populate the referrer field', function(done){
-			var referer = 'http://localhost:3000/tours/hood-river';
-			browser.visit(referer, function() {
+			var referrer = 'http://localhost:3000/tours/hood-river';
+			browser.visit(referrer, function() {
 				browser.clickLink('.requestGroupRate', function(){
 					console.log("YUP");
-					assert(browser.field('referer').value === referer);
+					assert(browser.field('referrer').value === referrer);
 					done();
 				});
 			});
@@ -24,10 +24,10 @@ suite('Cross-page Tests', function(){
 
 	test('requesting a group rate from the oregon coast tour page ' +
 			'should populate the referrer field', function(done){
-			var referer = 'http://localhost:3000/tours/oregon-coast';
-			browser.visit(referer, function(){
+			var referrer = 'http://localhost:3000/tours/oregon-coast';
+			browser.visit(referrer, function(){
 				browser.clickLink('.requestGroupRate', function(){
-					assert(browser.field('referer').value === referer);
+					assert(browser.field('referrer').value === referrer);
 					done();
 				})
 			});
@@ -37,7 +37,7 @@ suite('Cross-page Tests', function(){
 			'in an empty referrer field', function(done){
 			browser.visit('http://localhost:3000/tours/request-group-rate', 
 				function(){
-					assert(browser.field('referer').value === '');
+					assert(browser.field('referrer').value === '');
 					done();
 			});
 	});
