@@ -5,7 +5,7 @@ exports.config = {
 	seleniumAddress: 'http://localhost:4444/wd/hub',
 
 	// The url where the server we are testing is running
-	baseUrl: 'http://localhost:8000/',
+	baseUrl: 'http://localhost:3000/',
 
 	// Capabilities to be passed to the WebDriver instance,
 	capabilities: {
@@ -14,7 +14,7 @@ exports.config = {
 
 	// Spec patterns are relative to the location of the
 	// spec file. They may include glob patterns.
-	specs: ['*Spec*.js'],
+	specs: ['*spec*.js'],
 
 	// Options to be passed to Jasmine-node
 	jasmineNodeOpts: {
