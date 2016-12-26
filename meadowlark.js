@@ -1,12 +1,23 @@
 var path = require('path');
 var express = require('express');
-var handlebars = require('express-handlebars');
 var fortune = require('./lib/fortune.js');
 var app = express();
 
 // Set up handlebars view engine
 app.set('views', path.join(__dirname, 'views/layouts'));
-app.engine('handlebars', handlebars({defaultLayout: 'main'}));
+
+var handlebars = require('express-handlebars').create({
+		defaultLayout: 'main',
+		helpers: {
+			section: function(name, options){
+				if(!this._sections) this._sections = {};
+				this._sections[name] = options.fn(this);
+				return null;
+			}
+		}
+});
+
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 // Set port
